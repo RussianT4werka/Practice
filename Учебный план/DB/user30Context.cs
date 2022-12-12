@@ -275,5 +275,16 @@ namespace Учебный_план.DB
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        private static user30Context instance;
+
+        public static user30Context GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new user30Context();
+            }
+            return instance;
+        }
     }
 }

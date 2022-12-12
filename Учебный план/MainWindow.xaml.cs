@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Учебный_план.ViewModels;
 
 namespace Учебный_план
 {
@@ -24,9 +25,45 @@ namespace Учебный_план
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowVM();
         }
 
-        
-        
+        // Полоска сверху)
+        public void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed && Application.Current.MainWindow.WindowState != WindowState.Maximized)
+            {
+                DragMove();
+            }
+            else
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
+            }
+        }
+
+        //Свернуть приложение
+        public void Button_Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+
+        //Закрыть приложение
+        public void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        //Полный экран
+        public void WindowStateButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Application.Current.MainWindow.WindowState != WindowState.Maximized)
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
+            }
+        }
     }
 }

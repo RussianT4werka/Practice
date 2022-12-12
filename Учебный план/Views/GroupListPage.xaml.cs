@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Учебный_план.ViewModels;
 
 namespace Учебный_план.Views
 {
@@ -20,9 +21,10 @@ namespace Учебный_план.Views
     /// </summary>
     public partial class GroupListPage : Page
     {
-        public GroupListPage()
+        public GroupListPage(MainWindowVM mainViewModel)
         {
             InitializeComponent();
+            DataContext = new GroupListPageVM(mainViewModel);
         }
     }
 }
