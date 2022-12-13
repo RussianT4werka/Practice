@@ -25,6 +25,7 @@ namespace Учебная_часть.ViewModel
         public ViewCommand Welcome { get; set; }
         public ViewCommand List_Disciplines { get; set; }
         public ViewCommand List_Teachers { get ; set; }
+
         public ViewCommand List_Groups { get; set; }
         public MainViewModel()
         {
